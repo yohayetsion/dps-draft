@@ -49,6 +49,12 @@
       <p><strong>Jurisdiction Assumed:</strong> U.S. federal and Delaware as primary; UK, EU AI Act, and Israel as named secondaries. Surfaces serving non-listed jurisdictions inherit the framing &ldquo;treat every requirement as a hypothesis to verify with local counsel.&rdquo;</p>
     </div>
 
+    <div class="use-of-the-standard" style="border:1px solid var(--ink); padding:1.25rem 1.5rem; margin:1.5rem 0; background:#FAFAF7;">
+      <h3 style="margin-top:0">Use of the Standard</h3>
+      <p>The Decision Provenance Standard (&ldquo;the Standard&rdquo;) is published under the Creative Commons Attribution 4.0 International License (CC-BY 4.0). Under that license, any reader, deployer, vendor, consultancy, regulator, academic, or other party may <strong>read</strong>, <strong>cite</strong>, <strong>adopt</strong>, <strong>extend</strong>, or <strong>fork</strong> the Standard, with attribution. There is no certification track. There is no certifying body. There is no trademark on &ldquo;Decision Provenance Standard,&rdquo; &ldquo;Executive Operating System,&rdquo; &ldquo;Charter,&rdquo; &ldquo;Mode 1,&rdquo; or &ldquo;Mode 2.&rdquo;</p>
+      <p>The CC-BY 4.0 license is permissive on use; it does not authorize misuse. Outside the license: misrepresenting the Standard as certified, attested, or regulator-endorsed; misrepresenting derivative or extended work as authored or endorsed by the principal author; removing the load-bearing UPL firewall language (&ldquo;is not evidence, certification, or attestation&rdquo;) from derivative or extended work; or using the Standard's name to substitute for counsel review. See &sect;1 below for the full notice.</p>
+    </div>
+
     <div class="with-toc">
       <aside class="toc" aria-label="Table of contents">
         <h4>Sections</h4>
@@ -69,57 +75,450 @@
       <article>
         <section id="section-1" style="padding-top:1rem;border-bottom:0">
           <h2>1. Scope and Purpose</h2>
+
           <h3 id="section-1-1">1.1 What this Standard is</h3>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;1.1 prose lands here from the locked v1.0 source on Day 3 integration.</p>
+          <p>The Decision Provenance Standard is an open standard for the production and maintenance of audit-ready decision provenance in organizations that dispatch consequential decisions through a mix of human and AI authorship. The Standard formalizes a single artifact set &mdash; Charters, decision records, schedules of records, conformance signals, conformance levels, and disclosure metadata &mdash; and a single dispatch grammar &mdash; Mode 1 (Human-Led, AI-Enforced) and Mode 2 (AI-Led, Human-Reviewed) &mdash; under which a deployer organization commits to a way of deciding that survives leadership transitions and supports counsel and auditors when they prepare evidence, certifications, or attestations.</p>
+
+          <p>The Standard sits at the foundation of a broader claim: <strong>Executive Operating Systems are the organizational control architecture for hybrid human-AI decision-making &mdash; published as open standards, not certified products.</strong> <em class="title">Vision to Value: Volume One in the Executive Operating System series</em> describes the operating system that the Chief Product Officer's seat runs; this Standard is the open foundation on which that operating system, and any companion volume an author writes for another executive seat, depends. The Standard is the load-bearing layer; the operating system is the implementation.</p>
+
+          <p>The principal author is Yohay Etsion. The Standard is published under the Creative Commons Attribution 4.0 International License (CC-BY 4.0) as an open standard. Every term defined in &sect;2 is open vocabulary: a deployer, a tool vendor, a consultancy, a regulator, an academic, or any other party may adopt the terms, extend them, fork them under attribution, or implement them in any product or service consistent with the CC-BY 4.0 license.</p>
+
+          <p>Audit-ready decision provenance is the load-bearing object across the Standard. The locked one-line definition, reproduced verbatim:</p>
+
+          <blockquote style="border-left:4px solid var(--accent); padding-left:1rem; margin:1rem 0; font-style:italic">
+            Audit-ready decision provenance is a structured record of how a decision was made &mdash; inputs, reviewers, dispatch mode, sign-offs &mdash; that counsel and auditors can use as input when preparing evidence, certifications, or attestations; the provenance itself is not evidence, certification, or attestation.
+          </blockquote>
+
+          <p>The &ldquo;is not evidence, certification, or attestation&rdquo; clause is the Standard's load-bearing UPL firewall and is non-negotiable on every surface where the term is introduced. <strong>Counsel and auditors convert audit-ready decision provenance into evidence, certifications, or attestations as their professional judgment requires; the artifacts produced under this Standard do not.</strong></p>
+
+          <h3 id="section-1-2">1.2 Who this is for</h3>
+          <p>This Standard is written for four reading audiences, each with a distinct entry point:</p>
+
+          <p><strong>Deployers</strong> &mdash; Chief Product Officers, Chief Operating Officers, Chief Compliance Officers, Heads of Legal, and the executive teams who decide whether to install a Charter under the Standard in their organization. Deployers read &sect;1 (this preamble) for scope, &sect;3 (the Charter mechanism) for the operational commitment, and &sect;9 (Implementation Guidance) for the install path. Deployers carry the obligation; the Standard structures the inputs the obligation is discharged against.</p>
+
+          <p><strong>Counsel</strong> &mdash; General Counsel, in-house attorneys, outside counsel, employment counsel, privacy counsel, IP counsel, and compliance officers who advise the deployer on whether and how the Standard's records inform regulatory and litigation work. Counsel reads &sect;1.4 (&ldquo;What This Standard Claims &mdash; and What It Does Not Claim&rdquo;) first, then &sect;7 (Regulatory Cross-References) for framework-by-framework treatment, then &sect;5 (Required Artifact Set) for what the records actually contain. Counsel converts audit-ready decision provenance into evidence, certifications, or attestations as the matter requires; the Standard does not.</p>
+
+          <p><strong>Auditors</strong> &mdash; internal auditors, external auditors, SOC 2 examiners, ISO assessors, and the audit-adjacent professionals who read decision records and Charter states as inputs to their own attestation work. Auditors form their own substantive judgments; the Standard's conformance signals are structured inputs the auditor reads as one input among others.</p>
+
+          <p><strong>Regulators and downstream readers of Mode 2 artifacts</strong> &mdash; supervisory authorities reviewing a deployer's governance posture, AI Office staff considering Article 50 disclosure compliance, academic and policy researchers studying hybrid human-AI decision systems, and the natural persons who receive Mode 2 outputs as the audience for those outputs. The Standard is open to any regulator who wishes to read it. The Standard does not bind any regulator; no regulator has reviewed or endorsed it; the Standard's claims are the author's, made publicly under CC-BY 4.0.</p>
+
           <h3 id="section-1-4">1.4 What this Standard is not</h3>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;1.4 prose lands here verbatim. This is the load-bearing UPL boundary section.</p>
+
+          <p>The Standard claims a single thing: that the artifact set defined in &sect;&sect;2 through 6, produced and maintained per the requirements herein, constitutes <strong>audit-ready decision provenance</strong>. The Standard's claims are structural: the artifacts have a defined shape, the dispatch modes have a defined grammar, the conformance levels have defined criteria. The Standard makes no claim about regulatory state. To make this scope explicit, the following list enumerates what the Standard does <strong>not</strong> claim, in language a regulator or plaintiff's counsel would read against it:</p>
+
+          <ul>
+            <li><strong>Not evidence.</strong> A decision record produced under this Standard is not legal evidence. Evidence is produced by counsel, by litigants, by examiners, and by the rules of the forum that admits it. The Standard's records are structured process records that counsel may use as input when preparing evidence; they are not evidence in themselves.</li>
+            <li><strong>Not certification.</strong> A conformance level declared under this Standard is not certification. No third-party body certifies conformance under this Standard. A deployer self-declares a conformance level using the &sect;6 reporter; counsel and auditors read that self-declaration as one input among others when forming their own judgments.</li>
+            <li><strong>Not attestation.</strong> A decision record under this Standard is not an attestation. Attestation is a substantive professional judgment by qualified personnel against an enumerated framework (SOC 2, ISO/IEC 42001, etc.). The Standard structures the inputs an attestation work product consumes; the work product itself is the attesting professional's, not the Standard's.</li>
+            <li><strong>Not a regulatory substitute.</strong> Conformance with this Standard does not satisfy, ensure, certify, or substitute for any regulatory obligation under any framework &mdash; including but not limited to the EU AI Act, the EU GDPR, U.S. SOX 404, HIPAA, the Caremark line of fiduciary cases, NYC Local Law 144, Colorado SB 24-205, NIST AI RMF, ISO/IEC 42001, ISO/IEC 27001, SOC 2, or any successor or jurisdictionally analogous framework. Regulatory obligations belong to the obligated party. The Standard structures the inputs the obligated party's compliance work consumes.</li>
+            <li><strong>Not legal advice.</strong> Nothing in this Standard, in any decision record produced under it, in any Charter authored against it, or in any companion artifact is legal advice. No attorney-client relationship is created by reading, citing, adopting, or extending this Standard. Jurisdiction-specific questions, contested matters, and any decision with material legal or regulatory consequences require review by a licensed attorney in the relevant jurisdiction.</li>
+          </ul>
+
+          <p>The verbs the Standard uses are process verbs &mdash; <em>records</em>, <em>documents</em>, <em>structures</em>, <em>binds</em>, <em>commits</em>, <em>emits</em>, <em>informs</em>, <em>supports</em> &mdash; not regulatory verbs &mdash; <em>satisfies</em>, <em>ensures</em>, <em>certifies</em>, <em>guarantees</em>, <em>proves</em>. The verb discipline is intentional. A reader who encounters a regulatory verb anywhere in this Standard outside of a quoted regulatory framework name should treat the regulatory verb as an editorial defect to flag, not a Standard claim to rely on.</p>
+
+          <h3 id="section-1-6">1.6 Jurisdiction assumed</h3>
+
+          <p>The Standard is authored against an explicit primary jurisdiction with named secondary jurisdictions:</p>
+
+          <ul>
+            <li><strong>Primary jurisdiction</strong>: U.S. federal + Delaware</li>
+            <li><strong>Named secondary jurisdictions</strong>: United Kingdom (England &amp; Wales for litigation framing), the European Union (with the EU AI Act, Regulation (EU) 2024/1689, as the load-bearing AI-specific framework), and the State of Israel</li>
+          </ul>
+
+          <p>A deployer operating exclusively within one of the named jurisdictions can read the Standard with confidence that the regulatory cross-references in &sect;7 engage frameworks the named jurisdictions recognize. A deployer operating in any other jurisdiction reads the Standard as a hypothesis to verify with local counsel: the vocabulary, dispatch grammar, and conformance-signal architecture remain stable across jurisdictions &mdash; they are structural, not jurisdictional &mdash; while the regulatory cross-references, the audit-framework alignments, and the litigation-framing assumptions are jurisdictionally bounded to the named four.</p>
+
+          <p><strong>EU AI Act extraterritorial reach.</strong> The EU AI Act, Regulation (EU) 2024/1689, imposes Article 50 transparency-disclosure obligations on Mode 2 (AI-Led, Human-Reviewed) outputs that reach EU natural persons, <em>regardless of the deployer's primary jurisdiction</em>. A deployer incorporated outside the EU whose Mode 2 artifacts circulate to EU readers &mdash; through published install references, customer-facing decision summaries, regulatory filings, press releases, analyst briefings, or distribution channels the deployer authorizes &mdash; is within scope. <strong>The Article 50 transparency-disclosure obligation travels with the artifact across borders.</strong> Full treatment lives in &sect;7 (Disclosure Metadata).</p>
         </section>
 
         <section id="section-2" style="border-bottom:0">
           <h2>2. Definitions</h2>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;2 prose lands here from the locked v1.0 source.</p>
+
+          <p>Section 2 establishes the <strong>binding vocabulary</strong> for the Decision Provenance Standard. The terms defined here carry a single, precise meaning across &sect;&sect;3 through 10. Every Charter authored against this Standard, every decision record produced under it, and every conformance grade reported under it refers to the meanings declared here. <strong>Drift introduced in this section propagates everywhere.</strong></p>
+
+          <p>The defined terms follow the verb discipline: definitions describe what an artifact <em>is</em> and what an actor <em>does</em>; definitions do not describe what an artifact <em>does to a regulatory state</em>. A Charter <em>binds an organization to a decision-making mechanism</em>; a Charter does not <em>ensure compliance</em>. A decision record <em>captures how a decision was made</em>; a decision record does not <em>prove regulatory adequacy</em>. A conformance level <em>grades structural conformance to this Standard</em>; a conformance level does not <em>certify regulatory conformance</em>.</p>
+
+          <h3 id="section-2-charter">2.1 Charter</h3>
+          <p>A <strong>Charter</strong> is the artifact that binds an organization to a decision-making mechanism for a recurring decision class. The Charter names the decision class, the accountable owner, the inputs the decision requires, the cadence on which the decision is made, the success criteria the decision is held against, the escalation rule the decision invokes when its scope is breached, and the re-decision trigger that reopens the decision when outcome or market evidence demands. A Charter is not a contract. A Charter is not a regulatory filing. A Charter is the operational commitment an organization makes to a way of deciding, recorded in a form that survives leadership transitions.</p>
+
+          <h3 id="section-2-decision">2.2 Decision and decision record</h3>
+          <p>A <strong>decision</strong> is a single instance of decision-making governed by a Charter. The Charter is the type; the decision is the instance. A decision opens under a Charter, transits a dispatch sequence under one of the modes the Charter declares, and closes with a decision record. Decisions made outside a Charter are outside the scope of this Standard.</p>
+
+          <p>A <strong>decision record</strong> is a single instantiated, persistent, findable artifact that captures one decision. The decision record carries: a stable decision identifier; a single named accountable owner at the time of decision; a date decided; a pointer to the Charter under which the decision was made; the decision statement in plain language; the context at the time of decision; the options considered and the rationale for the option chosen; the inputs used (with version or date); the assumptions the decision depends on; the success criteria the decision is held against; the re-decision trigger that reopens the decision; related decisions; a record location that is durable, searchable, and linkable from the Charter; and the dispatch mode under which the decision was made.</p>
+
+          <p>The hygiene rule: <em>a decision record that cannot be found in 30 seconds by someone who was not in the room is not a decision record; it is a meeting note.</em></p>
+
+          <h3 id="section-2-modes">2.3 Mode 1 and Mode 2</h3>
+
+          <p><strong>Mode 1 &mdash; Human-Led, AI-Enforced</strong> is the canonical name for the dispatch mode in which a human authors the decision and an AI worker checks the human's work against the Charter. The human is the author of record. The AI worker is the discipline mechanism: it reads the Charter state, monitors decision-record completeness against the Charter's required fields, and emits conformance signals on the decision record. The AI worker does not author the substantive decision content under Mode 1.</p>
+
+          <p><strong>Mode 2 &mdash; AI-Led, Human-Reviewed</strong> is the canonical name for the dispatch mode in which an AI worker authors the decision (analysis, options framing, recommendation) and a human reviews the AI-authored draft before action. The AI worker is the author of record. The human is the reviewer of record. The human reviewer signs off, requests revision, or invokes Mode 2 &rarr; Mode 1 demotion when the AI-authored draft requires substantive human re-authoring rather than revision.</p>
+
+          <h3 id="section-2-conformance">2.4 Conformance signals and conformance levels</h3>
+
+          <p>A <strong>conformance signal</strong> is a named, machine-readable field on a Charter or decision record that records whether a structural requirement of the Standard is met. A signal is a field-level fact: a state has been reached, a field is populated, a sample has been audited, a cadence has fired on schedule. A signal is not a narrative claim. A signal does not record that a Charter &ldquo;is compliant,&rdquo; &ldquo;satisfies regulation,&rdquo; or &ldquo;ensures governance&rdquo;; those verbs belong to counsel, auditors, and regulators, not to a metadata field.</p>
+
+          <p>A <strong>conformance level</strong> is the named tier (1, 2, or 3) at which a Charter or decision record satisfies the structural requirements of the Standard. &sect;6 defines the criteria for each level. <strong>A conformance level is not certification.</strong> No third-party certifying body grades conformance levels under this Standard, because the Standard is published as an open standard and not as a certified product. A deployer self-declares a Charter's level using the conformance-level reporter; counsel and auditors read the level grade as one input among others when preparing their own work.</p>
+
+          <h3 id="section-2-disclosure">2.5 Disclosure metadata block, declaring authority, and accountable owner</h3>
+
+          <p>The <strong>disclosure metadata block</strong> is the structured input attached to a Charter or decision record under which a Mode 2 decision (or a Mode 1 decision incorporating an AI-generated summary as a sub-output) has been made. The block carries: the named human declaring authority responsible for discharging any disclosure obligation that attaches to the decision; the AI system identity (system name, version, model provider, deployment context, model-card pointer); the jurisdictional applicability the disclosure is scoped against; the Mode 1 edge-case flag where applicable; a pointer to the disclosure text the declaring authority has approved; timestamps for attachment and last review; and the disclosure provenance.</p>
+
+          <p>The <strong>declaring authority</strong> is the single named human responsible for discharging any disclosure obligation that attaches to a Mode 2 decision. The declaring authority is not the AI system; not the Charter; not the organization at large. The obligation belongs to a person.</p>
+
+          <p>The <strong>accountable owner</strong> is the single named human accountable for a Charter. Each Charter names one and only one accountable owner at any one time. The accountable owner is the human role at which Charter authorship and Charter ownership reside in the deployer's organization, regardless of reporting line.</p>
+
+          <h3 id="section-2-other">2.6 Other primitives</h3>
+
+          <p>A <strong>re-decision trigger</strong> is a named outcome condition or market condition declared up-front on a Charter that, when fired, reopens the decision class the Charter governs, regardless of decision status. The Charter's re-decision triggers are at minimum: one outcome-evidence trigger and one market-evidence trigger.</p>
+
+          <p>The <strong>schedule of records</strong> is the enumerated set of decision-record types a Charter commits to produce and maintain. The schedule names each record type, the trigger that opens a record of that type, the location at which records of that type live, and the retention discipline records of that type are held to.</p>
+
+          <p>The <strong>mode-declaration field</strong> is the required field on a Charter's state, and on each decision record produced under a Charter, that declares the dispatch mode in use. The field's value is one of three enumerated states: <span class="mono">mode-1</span>, <span class="mono">mode-2</span>, or <span class="mono">mode-1-with-embedded-mode-2-summary</span>.</p>
+
+          <p>The <strong>prior-state archive</strong> is a structured field on a decision record that captures the prior Mode 2 draft or audit finding when the decision results from a Mode 2 &rarr; Mode 1 demotion. The archive is the structural primitive that prevents silent re-moding.</p>
         </section>
 
         <section id="section-3" style="border-bottom:0">
           <h2>3. Charter Mechanism</h2>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;3 prose lands here.</p>
+
+          <h3 id="section-3-1">3.1 Purpose</h3>
+          <p>The Charter is the structural unit at the foundation of the Decision Provenance Standard. A Charter binds an organization to a decision-making mechanism for a recurring decision class &mdash; a class of decisions that arise on a cadence (launch readiness, pricing exceptions, platform intake, portfolio stop-continue calls, partnership architecture, customer-outcome reads, and so on) rather than as one-off events.</p>
+
+          <p>The Charter mechanism exists because a product organization that does not bind its recurring decisions to a named mechanism produces decisions whose authorship, dispatch mode, and record location drift in ways that are not visible until counsel or an auditor asks where a particular decision was made and the answer requires reconstruction from email threads, calendar invitations, and the memories of people who happened to be in the room. The Charter prevents that reconstruction by committing &mdash; in writing, before decisions begin to dispatch under it &mdash; to a named accountable owner, a declared dispatch mode, a schedule of records, and a set of triggers that will reopen the decision class when the conditions the Charter assumed have changed.</p>
+
+          <h3 id="section-3-not">3.2 What the Charter is not</h3>
+
+          <p>A Charter is <strong>not a contract</strong>. Contract law fixes obligations between parties through offer, acceptance, consideration, and the doctrines of contract formation; a Charter does none of those things. A Charter is an internal organizational artifact that binds the organization to a decision-making mechanism. It does not create rights or obligations that a counterparty could enforce in court.</p>
+
+          <p>A Charter is <strong>not a regulatory filing</strong>. No regulator certifies, accepts, or recognizes a Charter as discharging a regulatory obligation. The Charter mechanism is published under CC-BY 4.0 as an open standard; it is not a certification track, and no regulatory body has signed off on it.</p>
+
+          <p>A Charter is <strong>not a certification</strong>. No third-party certifying body certifies a Charter against the Standard. &sect;6 defines named tiers &mdash; Level 1, Level 2, Level 3 &mdash; at which a Charter's structural requirements are met, and a deployer's conformance-level reporter declares the level the Charter has reached.</p>
+
+          <p>The Charter binds the <strong>organization</strong> to a <strong>decision-making mechanism</strong>. It does not bind individuals to obligations beyond those the individuals' role definitions, employment agreements, or fiduciary duties already create.</p>
+
+          <h3 id="section-3-fields">3.3 Required fields</h3>
+
+          <p>A Charter under this Standard is a structured artifact carrying the following fields. Field names are binding identifiers; serializations may be JSON, YAML, typed objects, or human-readable prose so long as the field semantics align with these definitions.</p>
+
+          <table style="width:100%; border-collapse:collapse; margin:1rem 0">
+            <thead>
+              <tr style="border-bottom:2px solid var(--ink)">
+                <th style="text-align:left; padding:0.5rem">Field</th>
+                <th style="text-align:left; padding:0.5rem">Required at state</th>
+                <th style="text-align:left; padding:0.5rem">Definition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">charter_id</span></td><td style="padding:0.5rem"><span class="mono">open</span></td><td style="padding:0.5rem">A stable identifier that survives ownership changes, renames, and amendments.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">charter_name</span></td><td style="padding:0.5rem"><span class="mono">open</span></td><td style="padding:0.5rem">The human-readable name of the Charter.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">decision_class</span></td><td style="padding:0.5rem"><span class="mono">open</span></td><td style="padding:0.5rem">The recurring decision class the Charter governs.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">accountable_owner</span></td><td style="padding:0.5rem"><span class="mono">open</span></td><td style="padding:0.5rem">A single named human accountable for the Charter. One and only one.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">inside_decisions</span></td><td style="padding:0.5rem"><span class="mono">mode-declared</span></td><td style="padding:0.5rem">The list of decisions made inside this Charter's interface.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">outside_decisions</span></td><td style="padding:0.5rem"><span class="mono">mode-declared</span></td><td style="padding:0.5rem">The list of decisions explicitly pushed back from this interface.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">mode_declaration</span></td><td style="padding:0.5rem"><span class="mono">mode-declared</span></td><td style="padding:0.5rem"><strong>Required at any state past <span class="mono">open</span>.</strong> Enumerated: <span class="mono">mode-1</span>, <span class="mono">mode-2</span>, or <span class="mono">mode-1-with-embedded-mode-2-summary</span>.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">cadence</span></td><td style="padding:0.5rem"><span class="mono">fields-required</span></td><td style="padding:0.5rem">The decision cadence the Charter operates on &mdash; weekly, monthly, quarterly, on-trigger, or a structured combination.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">record_location</span></td><td style="padding:0.5rem"><span class="mono">fields-required</span></td><td style="padding:0.5rem">A URL or path locating the schedule of records. Must satisfy the 30-second findability rule.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">re_decision_triggers</span></td><td style="padding:0.5rem"><span class="mono">fields-required</span></td><td style="padding:0.5rem">At minimum one outcome-evidence trigger and one market-evidence trigger.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">escalation_rule</span></td><td style="padding:0.5rem"><span class="mono">fields-required</span></td><td style="padding:0.5rem">The named, exact trigger that elevates a decision out of the Charter's standing forum.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">schedule_of_records</span></td><td style="padding:0.5rem"><span class="mono">fields-completed</span></td><td style="padding:0.5rem">The committed enumerated set of decision-record types the Charter will produce.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">conformance_level_declared</span></td><td style="padding:0.5rem"><span class="mono">fields-completed</span></td><td style="padding:0.5rem">An enumerated value declaring the Charter's targeted conformance level &mdash; <span class="mono">1</span>, <span class="mono">2</span>, or <span class="mono">3</span>.</td></tr>
+              <tr style="border-bottom:1px solid var(--muted)"><td style="padding:0.5rem"><span class="mono">disclosure_metadata_pointer</span></td><td style="padding:0.5rem"><span class="mono">fields-completed</span></td><td style="padding:0.5rem">Required when <span class="mono">mode_declaration</span> is <span class="mono">mode-2</span> or <span class="mono">mode-1-with-embedded-mode-2-summary</span>.</td></tr>
+            </tbody>
+          </table>
+
+          <h3 id="section-3-lifecycle">3.4 Lifecycle states</h3>
+
+          <p>A Charter transits five named lifecycle states. Each state has a named entry condition and a named exit condition; transitions between states happen when the exit condition is satisfied. The lifecycle is sequential &mdash; Charters do not skip states &mdash; and the closed terminal state is irreversible.</p>
+
+          <ol>
+            <li><strong><span class="mono">open</span></strong> &mdash; The Charter has been created with <span class="mono">charter_id</span>, <span class="mono">charter_name</span>, <span class="mono">decision_class</span>, <span class="mono">accountable_owner</span>, and <span class="mono">created_at</span>. No decisions may be dispatched yet.</li>
+            <li><strong><span class="mono">mode-declared</span></strong> &mdash; The dispatch mode is declared. <span class="mono">inside_decisions</span> and <span class="mono">outside_decisions</span> enumerate the Charter's governed and explicitly-not-governed scopes.</li>
+            <li><strong><span class="mono">fields-required</span></strong> &mdash; All fields required for dispatch authorization are populated. The Charter may dispatch decisions of its declared class at its declared cadence under its declared mode.</li>
+            <li><strong><span class="mono">fields-completed</span></strong> &mdash; All Charter fields are populated. The Charter is fully committed; the &sect;6 conformance-level reporter can grade it; the schedule of records is published and discoverable.</li>
+            <li><strong><span class="mono">closed</span></strong> &mdash; The Charter is retired. Existing decision records produced under the Charter remain bound to the Charter. No new decisions may dispatch. Terminal.</li>
+          </ol>
+
+          <h3 id="section-3-binding">3.5 What the Charter binds</h3>
+
+          <p>A Charter at <span class="mono">fields-completed</span> records four binding properties of the organization's commitment: <strong>a named accountable owner</strong>, <strong>a declared dispatch mode</strong>, <strong>a schedule of records</strong>, and <strong>a set of re-decision triggers</strong>. The Charter does not bind anything else: it does not bind individuals to obligations beyond their role definitions; it does not bind the organization to outcomes; it does not bind external counterparties.</p>
+
+          <p>The verb &ldquo;binds&rdquo; describes the operational commitment without reaching for legal force. The object &ldquo;the organization&rdquo; places the binding at the entity level, not the individual level. The complement &ldquo;to a decision-making mechanism&rdquo; names what is bound: a set of structural commitments &mdash; owner, mode, schedule, triggers &mdash; that the organization commits to operating.</p>
         </section>
 
         <section id="section-4" style="border-bottom:0">
           <h2>4. Decision Records</h2>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;4 prose lands here.</p>
+
+          <p>A <strong>decision record</strong> is a single instantiated record produced at decision-close under a Charter that has reached the <span class="mono">fields-completed</span> lifecycle state. The schema below names the required fields, the lifecycle state at which each field becomes required, and the type each field carries. Field names are binding identifiers.</p>
+
+          <h3 id="section-4-dispatched">4.1 Required at decision-record state <span class="mono">dispatched</span></h3>
+
+          <p>These fields are required at the moment a decision opens under a Charter; absence prevents the dispatch state machine from authorizing the decision.</p>
+
+          <ul>
+            <li><span class="mono">decision_id</span> &mdash; stable identifier; survives ownership and rename changes (format: <span class="mono">DR-YYYY-NNN</span>).</li>
+            <li><span class="mono">charter_id</span> &mdash; the Charter under which this decision dispatches.</li>
+            <li><span class="mono">accountable_owner</span> &mdash; the named human accountable for the decision at time of dispatch. One and only one.</li>
+            <li><span class="mono">decision_class</span> &mdash; inherited from the Charter; required on the record because the record outlives the Charter version it dispatched under.</li>
+            <li><span class="mono">dispatch_mode</span> &mdash; <span class="mono">mode-1</span>, <span class="mono">mode-2</span>, or <span class="mono">mode-1-with-embedded-mode-2-summary</span>. Required at dispatch; cannot be silently mutated thereafter.</li>
+            <li><span class="mono">dispatched_at</span> &mdash; when the decision opened.</li>
+          </ul>
+
+          <h3 id="section-4-drafted">4.2 Required at decision-record state <span class="mono">drafted</span></h3>
+
+          <p>These fields are required by the time a decision-record reaches the <span class="mono">drafted</span> lifecycle state.</p>
+
+          <ul>
+            <li><span class="mono">decision_statement</span> &mdash; what was decided, in plain language. Active voice, 2&ndash;3 sentence form.</li>
+            <li><span class="mono">context_at_decision</span> &mdash; what was true when the decision was decided. Captures the inputs the decision was authored against.</li>
+            <li><span class="mono">options_considered</span> &mdash; at least two options, with reason each was considered and reason the winning option was chosen. <strong>Activity that did not consider alternatives produces process records, not decision records.</strong></li>
+            <li><span class="mono">required_inputs_used</span> &mdash; who provided what; version or date of each input.</li>
+            <li><span class="mono">assumptions_depended_on</span> &mdash; the 2&ndash;4 assumptions whose invalidation would force a reopen.</li>
+            <li><span class="mono">success_criteria</span> &mdash; T+2 / T+6 / T+12 indicators with named metric definitions, not just metric names.</li>
+            <li><span class="mono">disclosure_metadata_pointer</span> &mdash; required when <span class="mono">dispatch_mode</span> is <span class="mono">mode-2</span> or <span class="mono">mode-1-with-embedded-mode-2-summary</span>. Points to the Article 50 disclosure metadata block.</li>
+          </ul>
+
+          <h3 id="section-4-closed">4.3 Required at decision-record state <span class="mono">closed</span></h3>
+
+          <p>These fields are required at the moment the record archives to the schedule of records. After <span class="mono">closed</span>, the record is immutable except through a re-decision event that opens a new record with a back-pointer.</p>
+
+          <ul>
+            <li><span class="mono">closed_at</span> &mdash; when the record archived.</li>
+            <li><span class="mono">accountable_owner_signoff</span> &mdash; sign-off attestation from the accountable owner; in Mode 1, the human author; in Mode 2, the human reviewer of record.</li>
+            <li><span class="mono">re_decision_trigger</span> &mdash; the exact condition that forces a formal reopen. At minimum one outcome-evidence trigger and one market-evidence trigger. <strong>Triggers are conditions, not feelings.</strong></li>
+            <li><span class="mono">record_location</span> &mdash; canonical location where the record persists. Must be durable, searchable, and linkable from the Charter that governs this decision class.</li>
+            <li><span class="mono">related_decisions</span> &mdash; parent decision; sibling decisions; decisions this one supersedes. Empty when the record is the first under its Charter.</li>
+            <li><span class="mono">prior_state_archive</span> &mdash; required when the record results from a Mode 2 &rarr; Mode 1 demotion. The structured shape carries: <span class="mono">demotion_path</span> (enum: <span class="mono">review-driven</span> / <span class="mono">audit-driven</span> / <span class="mono">escalation-driven</span>), <span class="mono">prior_record_pointer</span>, <span class="mono">trigger_reference</span>, <span class="mono">demotion_reason</span>, and <span class="mono">demoted_at</span>.</li>
+          </ul>
+
+          <h3 id="section-4-discipline">4.4 Field discipline</h3>
+
+          <p>Field names are binding; type names are illustrative. A field that is required at a lifecycle state but absent at that state is a Charter conformance failure at Level 1 (per &sect;6). Fields that are nullable at a state are not &ldquo;optional&rdquo; in the marketing sense &mdash; they are not required at that state and may be required at a later state, in which case absence at the later state is a Level-1 conformance failure.</p>
+
+          <p>Verb discipline matters at the field-naming level. Field names use process verbs (<span class="mono">populated</span>, <span class="mono">committed</span>, <span class="mono">resolvable</span>, <span class="mono">archived</span>); they do not use regulatory verbs (<span class="mono">satisfies</span>, <span class="mono">ensures</span>, <span class="mono">certifies</span>). A field named <span class="mono">mode_declaration</span> records which mode the Charter declared; it does not certify that the decision met any regulatory requirement under that mode.</p>
         </section>
 
         <section id="section-5" style="border-bottom:0">
           <h2>5. Required Artifact Set</h2>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;5 prose lands here.</p>
+
+          <h3 id="section-5-purpose">5.1 Purpose</h3>
+          <p>Section 5 defines the artifact set that a conformant Charter commits to maintain. It specifies the schedule of records (the enumerated set of records a Charter promises will exist) and the discoverability and retention requirements that make the schedule operationally meaningful. &sect;3 establishes the Charter mechanism. &sect;4 defines the decision-record schema. &sect;5 tells a reader what records exist, where they live, and how they remain findable. This is the surface that converts the Charter from concept to consumable provenance.</p>
+
+          <p>The artifact set defined in this section produces <strong>audit-ready decision provenance</strong>:</p>
+
+          <blockquote style="border-left:4px solid var(--accent); padding-left:1rem; margin:1rem 0; font-style:italic">
+            Audit-ready decision provenance is a structured record of how a decision was made &mdash; inputs, reviewers, dispatch mode, sign-offs &mdash; that counsel and auditors can use as input when preparing evidence, certifications, or attestations; the provenance itself is not evidence, certification, or attestation.
+          </blockquote>
+
+          <h3 id="section-5-schedule">5.2 The schedule of records</h3>
+
+          <p>The schedule of records is the enumerated set of decision records a Charter commits to maintain. The schedule is the contract a Charter makes with its consumers &mdash; accountable owners, reviewers, counsel, auditors &mdash; about what records will exist and where they will be findable. The schedule is committed at the Charter <span class="mono">fields-completed</span> lifecycle state. A Charter that has not enumerated its schedule cannot reach <span class="mono">fields-completed</span> and cannot grade against any conformance level.</p>
+
+          <p>A conformant Charter's schedule includes, at minimum, the following record-types. Additional record-types may be enumerated as the Charter's decision class warrants.</p>
+
+          <ul>
+            <li><strong>Decision record</strong> &mdash; one per decision that opens under the Charter. Trigger: each decision opens. Cadence: on decision-close.</li>
+            <li><strong>Re-decision record</strong> &mdash; each time a Charter re-decision trigger fires. Trigger: outcome-evidence or market-evidence. Cadence: on trigger fire.</li>
+            <li><strong>Escalation record</strong> &mdash; each time the Charter's escalation rule is invoked. Cadence: on invocation.</li>
+            <li><strong>Charter-amendment record</strong> &mdash; each amendment to the Charter (mode change, decision-class boundary change, accountable-owner change, schedule-of-records change). Cadence: on amendment.</li>
+            <li><strong>Disclosure-review record</strong> &mdash; each scheduled re-review of a Disclosure Metadata Block (when applicable). Cadence: on the cadence the Charter declares for disclosure review.</li>
+          </ul>
+
+          <h3 id="section-5-findability">5.3 Findability &mdash; the 30-second hygiene rule</h3>
+
+          <p>A decision record that cannot be found in 30 seconds by someone who was not in the room is not a decision record; it is a meeting note. This is the hygiene rule the Standard adopts as the discoverability requirement for the schedule of records.</p>
+
+          <p>The rule is operationalized through the <span class="mono">record_location</span> field on each record and the Charter's <span class="mono">record_location</span> field. Both fields must resolve to a durable, searchable, linkable surface. The Charter's <span class="mono">record_location</span> resolves to the index that enumerates the schedule of records; each individual record's <span class="mono">record_location</span> resolves to the canonical instance of that record. A schedule whose Charter index resolves but whose individual records do not is a Charter that has committed to records it cannot produce on demand; that is a Level-1 conformance failure even if the schedule-enumeration field is populated.</p>
+
+          <h3 id="section-5-retention">5.4 Discoverability and retention</h3>
+
+          <p>A conformant Charter's schedule satisfies the following discoverability requirements: a resolvable Charter index queryable by record-type and date range; resolvable record locations for each individual record; stable identifiers across ownership changes, surface migrations, and renamings; and versioning of the Charter the record dispatched under (a Charter amended after a decision was made does not retroactively re-Charter the prior decision).</p>
+
+          <p>The Standard does not prescribe a single retention period. Retention is jurisdiction-sensitive and decision-class-sensitive. A Charter governing a decision class with seven-year regulatory retention requirements carries a different retention obligation than a Charter governing a decision class with no jurisdictional retention requirement. The Standard names the structural requirement; <strong>the deployer's counsel sets the period</strong>.</p>
+
+          <h3 id="section-5-non-claim">5.5 Explicit non-claim</h3>
+
+          <p>The artifact set does not produce evidence (counsel and auditors convert audit-ready provenance into evidence; the schema and schedule do not), does not satisfy regulatory obligations (the deployer's accountable owners and reviewers discharge their obligations), does not certify conformance with any external framework, does not discharge the EU AI Act Article 50 disclosure obligation, and does not substitute for review by qualified personnel. <strong>Counsel, auditors, the deployer's officers, and the deployer's reviewers consume the artifact set as input to their work. Their review is what the artifact set serves; it is not what the artifact set replaces.</strong></p>
         </section>
 
         <section id="section-6" style="border-bottom:0">
           <h2>6. Conformance Levels</h2>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;6 prose lands here. See also the <a href="./conformance-levels.html">plain-language explainer</a>.</p>
-          <h3 id="section-6-4-3">6.4.3 Grades, does not certify</h3>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;6.4.3 verbatim grades-vs-certifies framing.</p>
+
+          <p>Section 6 defines three named tiers &mdash; Conformance Level 1, Conformance Level 2, and Conformance Level 3 &mdash; at which a Charter satisfies the Standard's structural requirements. Each level is a structured fact about field population, lifecycle-state attainment, and emission cadence read off the substrates &sect;&sect;3, 4, and 5 establish. See also the <a href="./conformance-levels.html">plain-language explainer</a>.</p>
+
+          <h3 id="section-6-1">6.1 Conformance Level 1 &mdash; Charter-Conformant</h3>
+
+          <p>Conformance Level 1 grades the Charter as a structurally complete artifact. A Charter at Level 1 has reached the <span class="mono">fields-completed</span> lifecycle state, has declared one of the three enumerated mode values in <span class="mono">mode_declaration</span>, has committed a non-empty schedule of records, names a single human in <span class="mono">accountable_owner</span>, and resolves its <span class="mono">record_location</span> to a durable, queryable surface.</p>
+
+          <p>A Charter grades at Level 1 when, and only when, every Level 1 criterion below is satisfied:</p>
+          <ul>
+            <li>Charter has reached the <span class="mono">fields-completed</span> lifecycle state.</li>
+            <li><span class="mono">mode_declaration</span> populated with one of three enumerated values.</li>
+            <li>Schedule of records committed and non-empty.</li>
+            <li><span class="mono">record_location</span> resolves to a durable surface.</li>
+            <li><span class="mono">accountable_owner</span> names one human.</li>
+            <li><span class="mono">re_decision_triggers</span> meets the two-class minimum (one outcome-evidence trigger and one market-evidence trigger).</li>
+            <li><span class="mono">escalation_rule</span> populated with a named, exact trigger.</li>
+          </ul>
+
+          <p>A Level 1 grade declares that the Charter is structurally complete: it has named what it governs, who owns it, what mode it dispatches in, where its records live, and what triggers reopen its decisions. The grade does not declare anything about the substantive content of decisions made under the Charter, the regulatory adequacy of those decisions, or the operational quality of the Charter's execution.</p>
+
+          <h3 id="section-6-2">6.2 Conformance Level 2 &mdash; Mode-Disambiguated</h3>
+
+          <p>Conformance Level 2 grades the Charter at the per-record end-state altitude. A Charter at Level 2 satisfies every Level 1 criterion and additionally satisfies four per-record-altitude criteria: every decision record carries its <span class="mono">dispatch_mode</span> field, every Mode 2 record carries a complete Article 50 disclosure metadata block, every Mode 1 edge-case record (carrying the <span class="mono">mode_1_edge_case_flag</span>) carries a per-record disclosure block at the embed point, and the Mode-Drift Composed Mitigation sub-spec's Layer 3 sample audit returns no silent drift findings on the schedule sample.</p>
+
+          <p>The Level 2 grade is the load-bearing tier for the Standard's regulatory cross-references. A Charter that grades at Level 2 has produced records whose authorship is disambiguated at the per-record altitude, whose disclosure metadata is structurally attached where required, and whose silent-drift exposure has been audited at the cadence the Mode-Drift sub-spec binds. The grade is the structural input the EU AI Act Article 50 disclosure obligation, the U.S. NIST AI Risk Management Framework Manage 4.1 implementation, and ISO/IEC 42001 conformance-readiness work consume &mdash; counsel and auditors convert the Level 2 grade into evidence for those frameworks. The grade itself remains a structural fact, not a regulatory determination.</p>
+
+          <h3 id="section-6-3">6.3 Conformance Level 3 &mdash; Continuously Auditable</h3>
+
+          <p>Conformance Level 3 grades the Charter as it operates over time. A Charter at Level 3 satisfies every Level 1 and Level 2 criterion and additionally satisfies four operating-cadence criteria: re-decision triggers fire and produce records on the Charter's declared cadence, the escalation rule produces records when invoked, disclosure metadata blocks carry current <span class="mono">last_reviewed_at</span> per the Charter's review cadence, and the schedule of records is queryable and exportable for counsel and auditor review on demand.</p>
+
+          <p>The Level 3 grade is the continuous-audit tier. It depends on the Charter's structural completeness (Level 1) and per-record disambiguation (Level 2) and adds the operating-time dimension that converts a Charter from a static artifact into a continuously auditable mechanism.</p>
+
+          <h3 id="section-6-4-3">6.4 Grades, does not certify</h3>
+
+          <p>A Level 3 grade declares that the Charter operates continuously against the Standard's structural requirements: the mechanism the Charter committed to is running at the cadence the Charter declared, the safety net is active in enforcement mode, and the schedule is queryable on demand for counsel and auditor review. <strong>The grade does not declare that the Charter is in compliance with any regulator's substantive determination, that any specific decision is adequate under any framework, or that the mechanism will continue to operate at Level 3 in the future.</strong> The grade is a fact about the Charter's operating-time history through the moment the reporter ran; it is not a forward-looking guarantee.</p>
+
+          <p>The Level 3 grade is the highest tier this Standard defines. A Charter at Level 3 has produced audit-ready decision provenance at the structural standard the Standard names, and that provenance is the input qualified personnel consume when they convert structural records into evidence, attestation, or regulatory work. <strong>The Standard does not define a Level 4</strong> because no further structural increment improves the audit-readiness of the artifact set without crossing into substantive judgment, which the Standard explicitly does not opine on. A deployer seeking a higher tier of confidence than Level 3 produces is seeking substantive review by qualified personnel, which is a different surface this Standard supports rather than substitutes for.</p>
+
+          <h3 id="section-6-non-claim">6.5 Conformance Level Grading is Input</h3>
+
+          <p>The Conformance Level grading mechanism this Section establishes is <strong>input</strong> to compliance, audit, and governance work performed by qualified personnel. It is not, and the Standard does not claim it to be:</p>
+
+          <ul>
+            <li><strong>a regulatory authority surface.</strong> No Conformance Level grade discharges any obligation under the EU AI Act, GDPR, SOX, NIST AI RMF, ISO/IEC 42001, the Caremark line of Delaware oversight cases, or any other regulatory regime.</li>
+            <li><strong>a certification.</strong> No third-party certifying body certifies a Charter against this Standard. The Conformance Level grade is the deployer's conformance-level reporter declaring, on field facts the deployer's Charter and decision records expose, the structural tier the Charter has reached.</li>
+            <li><strong>audit defense.</strong> A Charter at Level 3 with a current audit moment and clean signals has produced audit-ready decision provenance at the structural standard the Standard names. It has not produced a defense against any audit finding.</li>
+            <li><strong>a substitute for licensed counsel review.</strong> The &sect;6 grade is structural; the counsel review is substantive. The two surfaces are distinct, and the grade does not replace the review.</li>
+          </ul>
         </section>
 
         <section id="section-7" style="border-bottom:0">
           <h2>7. Disclosure Metadata</h2>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;7 prose lands here.</p>
+
+          <p>This section integrates the Article 50 conformance language for the Standard's Mode 2 (AI-Led, Human-Reviewed) outputs.</p>
+
+          <h3 id="section-7-scope">7.1 Article 50 scope and applicability</h3>
+
+          <p>The European Union Artificial Intelligence Act, Regulation (EU) 2024/1689 (&ldquo;EU AI Act&rdquo;), Article 50, imposes transparency and disclosure obligations on providers and deployers of AI systems that generate or manipulate content reaching natural persons. This Standard incorporates Article 50 as a load-bearing conformance requirement on Mode 2 outputs because Mode 2 dispatch produces precisely the class of artifact Article 50 was written to govern: content authored by an AI system and presented to a human reader.</p>
+
+          <p><strong>Extraterritorial-reach scoping (binding).</strong> This conformance requirement applies to any deployer of a Charter under this Standard whose Mode 2 outputs (i) are produced within an EU jurisdiction, <strong>OR</strong> (ii) are produced anywhere in the world but reach, or are reasonably foreseeable to reach, EU natural persons regardless of the deployer's primary jurisdiction. A deployer incorporated outside the EU (illustratively: U.S., UK, Israel) whose Mode 2 artifacts circulate in any form to EU readers (published install references, customer-facing decision summaries, regulatory filings, press releases, analyst briefings, or distribution channels the deployer authorizes) is within scope. The transparency-disclosure obligation is <em>not</em> an EU-jurisdiction problem confined to EU-incorporated entities; <strong>it travels with the artifact across borders.</strong></p>
+
+          <h3 id="section-7-mode2">7.2 Mode 2 output conformance requirements</h3>
+
+          <p>A Mode 2 (AI-Led, Human-Reviewed) artifact under this Standard is any decision summary, recommendation, decision-aid, draft, classification, or other content where the AI system is the author of record and a named human is the reviewer of record per the Charter's dispatch state machine. <strong>Every Mode 2 artifact MUST carry transparency-disclosure metadata at the point of generation</strong>, attached to the artifact such that the metadata cannot be separated from the content through routine downstream handling (forwarding, anonymization, publication, or onward distribution).</p>
+
+          <h3 id="section-7-fields">7.3 Required metadata fields</h3>
+
+          <ol>
+            <li><strong><span class="mono">declaring-authority</span></strong> &mdash; the legal entity (deployer of the Charter) that takes responsibility for the disclosure, expressed as a stable identifier. The declaring authority is the Charter-deploying organization, not the AI-system vendor.</li>
+            <li><strong><span class="mono">ai-system-identity</span></strong> &mdash; the named AI system that produced the content, expressed as vendor + model + version (or equivalent stable identifier where vendor/model/version is not the relevant abstraction). Sufficient for a downstream reader to identify what produced the artifact.</li>
+            <li><strong><span class="mono">jurisdictional-applicability-tag</span></strong> &mdash; one or more values from the controlled vocabulary <span class="mono">{eu, us-federal, us-delaware, uk, israel, other:&lt;jurisdiction&gt;}</span> declaring the jurisdictions in which the artifact is intended to circulate. Where <span class="mono">eu</span> is present or <span class="mono">other:</span> cannot exclude EU natural persons, full Article 50 transparency disclosure is mandatory.</li>
+            <li><strong><span class="mono">content-type-tag</span></strong> &mdash; from the controlled vocabulary <span class="mono">{decision-summary, recommendation, decision-aid, draft, classification, synthetic-media, other:&lt;type&gt;}</span>.</li>
+            <li><strong><span class="mono">generation-timestamp</span></strong> &mdash; ISO 8601 timestamp at point of generation.</li>
+          </ol>
+
+          <h3 id="section-7-mode1edge">7.4 Mode 1 edge case &mdash; embedded AI-generated content</h3>
+
+          <p>Embedded AI-generated content inside an otherwise Mode 1 artifact is Mode 2 content at the embed point. A Charter that anticipates such embedded sub-outputs declares <span class="mono">mode-1-with-embedded-mode-2-summary</span> at the Charter altitude; per-record disclosure metadata blocks attach at the embed point even though the surrounding container is Mode 1. <strong>Article 50 disclosure attaches to the embedded sub-output, not to the container.</strong></p>
+
+          <h3 id="section-7-non-claim">7.5 Explicit non-claim</h3>
+
+          <p>The Decision Provenance Standard does not satisfy, ensure, or certify any obligation under Regulation (EU) 2024/1689 Article 50. The Standard's transparency-disclosure metadata schema <strong>structures</strong> the inputs the named declaring authority &mdash; a natural person &mdash; uses to discharge the Article 50 disclosure obligation; the schema does not discharge the obligation itself. The Standard does not opine on whether a specific Mode 2 artifact is within Article 50's substantive scope, on the form, language, accessibility, or timing of the disclosure text the declaring authority must produce, or on the allocation of liability between the Charter deployer (declaring authority) and the third-party AI-system vendor whose output the Charter governs. <strong>The Standard structures the inputs; the named declaring authority and the deployer's qualified personnel discharge the obligation.</strong></p>
         </section>
 
         <section id="section-8" style="border-bottom:0">
           <h2>8. Reporter Protocol</h2>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;8 prose lands here. See also the <a href="./reporter-api.html">Reporter API documentation</a>.</p>
+
+          <p>The Reporter Protocol is the wire contract by which a deployer's Charter installation emits a self-declared Conformance Level signal. The protocol is open; the endpoint is documented in the <a href="./reporter-api.html">Reporter API</a> page; the OpenAPI 3.1 spec is downloadable. Implementations are deployer-side; the Standard does not run a registry server. See also the <a href="./reporter-api.html">Reporter API documentation</a>.</p>
+
+          <h3 id="section-8-purpose">8.1 What the protocol does and does not do</h3>
+
+          <p>The Reporter Protocol defines the wire shape of a self-declared conformance signal. <strong>The protocol does not validate, certify, or attest the signal.</strong> A deployer implementing a reporter against this protocol emits, on the cadence the Charter declares, a structured assertion that the Charter has reached a named Conformance Level. Counsel and auditors read the assertion as one input among others when forming their own substantive judgments.</p>
+
+          <h3 id="section-8-classes">8.2 Signal semantic classes</h3>
+
+          <p>Per the Standard's emission-cadence convergence lock, conformance signals partition into three semantic classes, each with its own emission cadence:</p>
+
+          <ul>
+            <li><strong>Level 1 signals</strong> emit on the <strong>Charter state-event</strong> trigger: at the transition into <span class="mono">fields-completed</span> and on subsequent mode-migration events that mutate Charter state through a named amendment. Mid-lifecycle decision-record transitions do not emit Level 1 signals; the truth value of a Level 1 signal cannot change between Charter-state events.</li>
+            <li><strong>Level 2 signals</strong> emit on the <strong>per-record-close</strong> trigger for the per-record end-state facts (<span class="mono">every_record_carries_mode_declaration</span>, <span class="mono">every_mode_2_record_has_disclosure_block</span>, <span class="mono">every_mode_1_edge_case_record_has_disclosure_block</span>, <span class="mono">disclosure_block_required_fields_populated</span>) and on the <strong>Layer 3 audit-cadence</strong> for the sample-level audit fact (<span class="mono">no_silent_mode_drift_in_sample</span>).</li>
+            <li><strong>Level 3 signals</strong> emit on <strong>every state transition</strong> of every decision record under the Charter plus on <strong>scheduled reporter runs</strong> declared in the Charter's reporting cadence. The every-transition emission on Level 3 is what makes the tier continuously auditable.</li>
+          </ul>
+
+          <h3 id="section-8-mode-drift">8.3 Mode-Drift Composed Mitigation</h3>
+
+          <p>The Mode-Drift Composed Mitigation is a four-layer architectural answer to silent Mode 1 &rarr; Mode 2 drift, the most exposed failure mode of the dispatch state machine. The four layers compose orthogonally on actor independence and detection-moment independence:</p>
+
+          <ol>
+            <li><strong>Layer 1 &mdash; Statistical detection.</strong> An independent Mode-2-trained classifier, sampling Mode-1-declared closed records at 15% baseline (with first-100-records-per-Charter and embedded-summary-Charter overrides), routes drift candidates above the 0.75 confidence threshold to peer review. The classifier's training corpus is disjoint from any AI worker output it will later classify.</li>
+            <li><strong>Layer 2 &mdash; In-flow audit hook.</strong> At the moment a Mode-1-declared record enters <span class="mono">closed</span>, the dispatch state machine surfaces a four-question Substantive-Authorship Challenge to the declaring authority and routes any non-Yes answer to peer review.</li>
+            <li><strong>Layer 3 &mdash; Mode-Confirmation Audit primitive.</strong> A designated peer reviewer, named in the Charter's <span class="mono">peer_reviewer_pool</span> field with author and Charter-owner-when-author exclusions enforced, holds the record at <span class="mono">review-required</span> and either confirms the Mode declaration, requests Mode 1 &rarr; Mode 2 migration, or invokes Mode 2 &rarr; Mode 1 demotion.</li>
+            <li><strong>Layer 4 &mdash; Named Human-Attestation Fallback.</strong> A structured attestation object on the decision record names the human attestor in capacity (employee, contractor, officer, or director), records jurisdictional variant of attestation language, and binds the attestor's confirmation to the Layer 2 four-question evidence base.</li>
+          </ol>
         </section>
 
         <section id="section-9" style="border-bottom:0">
           <h2>9. Versioning Policy</h2>
-          <p class="placeholder"><strong>Standard text placeholder &mdash;</strong> &sect;9 prose lands here.</p>
+
+          <h3 id="section-9-non-break">9.1 The minor-release non-break commitment</h3>
+
+          <p>The minor-release non-break commitment is a Standard-level property: minor releases of the Standard's authoring artifacts (Section 2 through 8 normative text, the Interface Contract, the Mode-Drift sub-spec, the conformance-signal vocabulary, the Article 50 conformance language) <strong>do not break a deployer's pre-release Conformance Level grade in the general case</strong>.</p>
+
+          <p>A Charter whose pre-release Conformance Level grade was Level 3 against Standard release N grades at Level 3 against Standard release N+1 (minor release) unless the release explicitly enumerates the Charter's grade as broken. The conformance reporter reads the deployer's release version and the Charter's grade against that version, and the Standard's commitment is that the release version increment does not silently mutate the grade.</p>
+
+          <p>The commitment exists because conformance-level grading is consumed by counsel, auditors, and the deployer's accountable personnel as input to substantive work. <strong>A grade that mutated silently across releases would force every consumer to re-validate every Charter on every Standard release, which would defeat the structural-input value the grade is designed to provide.</strong></p>
+
+          <h3 id="section-9-classifier">9.2 Classifier-version increments</h3>
+
+          <p>A classifier-version increment is <strong>NOT</strong> a Conformance Level 2 break in the general case. The Standard grades against the structural fact <span class="mono">no_silent_mode_drift_in_sample</span> at the audit moment the Layer 3 sample audit runs, not against the Layer 1 classifier's identity at any given moment. A Charter whose Layer 3 audit ran clean against classifier version N and whose audit re-runs clean against classifier version N+1 grades the same at Level 2; a Charter whose audit re-runs and produces a peer-confirmed drift finding at version N+1 does not grade at Level 2 until the affected records are re-dispatched per the demotion mechanism.</p>
+
+          <p><strong>The narrow exception</strong>: a classifier-version increment that materially changes the corpus disjointness property is a Conformance Level 2 break. The disjointness property is load-bearing for Layer 1 &mdash; the classifier's training corpus must be disjoint from any AI worker output it will later classify. A classifier retrained on a corpus that includes AI worker output it has previously classified is a classifier whose disjointness has lapsed.</p>
+
+          <h3 id="section-9-arbiter">9.3 Classification-ambiguity arbiter</h3>
+
+          <p>The classification-ambiguity arbiter is a single agent (CPO), not a multi-member panel. The arbiter operates at the same altitude the Charter's <span class="mono">accountable_owner</span> operates: one named human, accountable for the call, recorded in the audit trail. The arbiter's role is to declare whether a contested case is a routine versioning event (no Conformance Level break) or a structural amendment (Conformance Level break). The declaration is itself a decision and produces a decision record.</p>
+
+          <p>The arbiter operates against a fixed scope: contested cases of the break enumeration as applied to specific releases, contested cases of the classifier-version disjointness exception, and contested cases of analogous rules elsewhere in the Standard's versioning policy. The arbiter does not opine on Charter-altitude conformance and does not opine on substantive matters that fall to qualified personnel.</p>
+
+          <h3 id="section-9-currency">9.4 Currency note</h3>
+
+          <p>Citations in &sect;10 are version-specific. Frameworks evolve: regulations are amended, standards are revised, case law is interpreted by subsequent decisions, and reference implementations release new versions. <strong>A reader relying on any citation verifies currency at the issuing body's pointer URL before treating that citation as current.</strong> A bibliography entry that was accurate when this Standard was published can become stale; the entry is a starting point for the reader's verification, not a snapshot of authoritative current state.</p>
         </section>
 
         <section id="section-10" style="border-bottom:0">
           <h2>10. External References</h2>
-          <p>Cross-references to <em class="title">Vision to Value</em> Volume One, the Position Paper, and Product Org OS v5.0.0 are listed in this section.</p>
+
+          <p>Section 10 enumerates the named regulatory frameworks, prior art, and source materials the Standard cites. Entries cite; they do not characterize. Substantive engagement with each framework lives in the Standard's Section 7 (Regulatory Cross-References), available in the full PDF. What follows is the bibliography only.</p>
+
+          <h3 id="section-10-ai">10.1 AI-specific frameworks</h3>
+
+          <ul>
+            <li><strong>European Union &mdash; Regulation (EU) 2024/1689 (the EU AI Act).</strong> European Parliament and Council of the European Union. Articles cited: Article 14 (Human Oversight); Article 17 (Quality Management System); Article 50 (Transparency Obligations for Providers and Deployers of Certain AI Systems). Pointer: <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" rel="noopener" target="_blank">eur-lex.europa.eu/eli/reg/2024/1689/oj</a>.</li>
+            <li><strong>United States &mdash; NIST AI Risk Management Framework (AI RMF 1.0).</strong> U.S. National Institute of Standards and Technology, January 2023. Sub-functions cited: the Manage function generally; specifically Manage 4.1. Pointer: <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf" rel="noopener" target="_blank">NIST.AI.100-1</a>.</li>
+            <li><strong>International &mdash; ISO/IEC 42001:2023.</strong> International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC). First edition, 2023. Information technology &mdash; Artificial intelligence &mdash; Management system &mdash; Requirements. Pointer: <a href="https://www.iso.org/standard/81230.html" rel="noopener" target="_blank">iso.org/standard/81230</a>.</li>
+          </ul>
+
+          <h3 id="section-10-traditional">10.2 Traditional internal-control and assurance frameworks</h3>
+
+          <ul>
+            <li><strong>COSO 2013 &mdash; Internal Control &mdash; Integrated Framework.</strong> Committee of Sponsoring Organizations of the Treadway Commission, 2013 edition. Pointer: <a href="https://www.coso.org/guidance-on-ic" rel="noopener" target="_blank">coso.org/guidance-on-ic</a>.</li>
+            <li><strong>Sarbanes-Oxley Act of 2002, Section 404.</strong> 107th United States Congress, Public Law 107-204, codified at 15 U.S.C. &sect; 7262. Pointer: <a href="https://www.govinfo.gov/content/pkg/PLAW-107publ204/pdf/PLAW-107publ204.pdf" rel="noopener" target="_blank">govinfo.gov</a>.</li>
+            <li><strong>SOC 2 Type II / AICPA Trust Services Criteria.</strong> American Institute of Certified Public Accountants, TSP Section 100, 2017 Trust Services Criteria with 2022 revisions to Points of Focus. Pointer: <a href="https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2" rel="noopener" target="_blank">aicpa-cima.com</a>.</li>
+          </ul>
+
+          <h3 id="section-10-caselaw">10.3 Case law</h3>
+
+          <ul>
+            <li><strong><em>In re Caremark International Inc. Derivative Litigation</em>.</strong> Delaware Court of Chancery, 698 A.2d 959 (Del. Ch. 1996). Subject domain: board-of-directors oversight duties under Delaware corporate law. Pointer: <a href="https://courts.delaware.gov/opinions/" rel="noopener" target="_blank">courts.delaware.gov/opinions</a>.</li>
+            <li><strong><em>Marchand v. Barnhill</em>.</strong> Supreme Court of Delaware, 212 A.3d 805 (Del. 2019). Subject domain: board-of-directors oversight duties, decided in 2019. Pointer: <a href="https://courts.delaware.gov/opinions/" rel="noopener" target="_blank">courts.delaware.gov/opinions</a>.</li>
+          </ul>
+
+          <h3 id="section-10-priorart">10.4 Upstream blueprint and reference implementation</h3>
+
+          <ul>
+            <li><strong>Yohay Etsion &mdash; <em class="title">Vision to Value: Volume One in the Executive Operating System Series</em>.</strong> Edition cited: v5.2. License: CC-BY 4.0. The book-length blueprint articulating the operating system the Standard formalizes. The Standard is the normative-document derivative; <em class="title">Vision to Value</em> is the upstream blueprint. Series hub: <a href="https://yohayetsion.github.io/eos-draft/index.html">Executive Operating Systems Series</a>.</li>
+            <li><strong>Product Org OS &mdash; open-source skill bundle.</strong> Maintainer: Yohay Etsion / Etsion Brands Ltd. License: CC-BY 4.0. Open-source repository implementing the structural requirements of the Standard's &sect;3 (Charter mechanism), &sect;4 (decision-record schema), and &sect;6 (conformance levels) as runnable Claude Code skills. Pointer: <a href="https://github.com/yohayetsion/product-org-os" rel="noopener" target="_blank">github.com/yohayetsion/product-org-os</a>. The Standard cites the skill bundle as a reference implementation; the skill bundle is not a substitute for the Standard's normative text and does not declare conformance with any external regulatory framework.</li>
+          </ul>
         </section>
 
         <p style="margin-top:2rem"><small>Last revised: 2026-04-30. Cite by section anchor: <span class="mono">/read#section-N</span> or <span class="mono">/read#section-N-M</span>.</small></p>

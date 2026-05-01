@@ -222,3 +222,42 @@ li { margin-bottom: 0.4em; }
 
 /* ----- 16. Mobile nav script hook ---------------------------------------- */
 .no-js .topnav__toggle { display: none; }
+
+/* ----- 17. J.1 routing surfaces (decision-tree, book-scope, mirror) ------- */
+/* Decision-tree-block — F.1 home, 4-card 2x2 grid */
+.decision-tree-block { background: var(--accent-soft); border-top: 1px solid var(--muted); border-bottom: 1px solid var(--muted); }
+.card-grid--four { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+@media (max-width: 768px) { .card-grid--four { grid-template-columns: 1fr; } }
+.card--seat { background: #FFFFFF; padding: 24px; }
+.card--seat .seat-label {
+  display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent); opacity: 0.85; margin-bottom: 6px;
+}
+.card--seat h3 { margin: 0 0 0.8em; font-size: 18px; }
+.card--seat p { font-size: 15px; margin-bottom: 0.7em; }
+.card--seat p strong { font-weight: 600; }
+.card--seat .seat-cta { margin-top: 0.8em; padding-top: 0; font-size: 14px; }
+.card--seat .seat-cta a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Book-scope-block — F.1 volume-one */
+.book-scope-block { background: var(--accent-soft); border-bottom: 1px solid var(--muted); }
+.book-scope-block p { font-size: 17px; }
+
+/* Standard-mirror-block — F.2 home */
+.standard-mirror-block { background: var(--accent-soft); border-bottom: 1px solid var(--muted); }
+.standard-mirror-block p { font-size: 17px; }
+
+/* Hero CTA visual lowering — Decision 10(b): F.1 home only, lower prominence
+   of hero CTAs so decision-tree-block dominates first viewport */
+.hero--lowered .hero__cta { margin-top: 1rem; }
+.hero--lowered .btn {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 400;
+  border: 1px solid var(--muted);
+  background: transparent;
+  color: var(--ink);
+  opacity: 0.75;
+}
+.hero--lowered .btn:hover { opacity: 1; filter: none; background: var(--accent-soft); border-color: var(--accent); }
+.hero--lowered .btn--ghost { background: transparent; }
