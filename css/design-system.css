@@ -1,0 +1,224 @@
+/* =========================================================================
+   Executive Operating Systems Series + Decision Provenance Standard
+   Shared Design System — F.1 (Series hub) + F.2 (Standard hub)
+   Version: v1 draft (2026-04-30)
+   Owner: Frontend Dev / Design Director
+   Locked spec: F.1-F.2-page-copy-framework-2026-04-30.md §1
+   ========================================================================= */
+
+/* ----- 1. Reset + base ---------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Inter", "Helvetica Neue", system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+hr { border: 0; border-top: 1px solid var(--muted); margin: 2.5rem 0; }
+
+/* ----- 2. Tokens ---------------------------------------------------------- */
+:root {
+  --bg: #FAFAF7;
+  --ink: #0F1310;
+  --muted: #C5C0B0;
+  --warning: #8B3A1E;
+  --accent: #1F4D3A;       /* F.1 default — slate green */
+  --accent-soft: #1F4D3A14; /* 8% */
+  --max-measure: 68ch;
+}
+body[data-site="f2"] {
+  --accent: #2A3B5F;       /* F.2 — slate blue */
+  --accent-soft: #2A3B5F14;
+}
+
+/* ----- 3. Typography ------------------------------------------------------ */
+h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 0.6em; }
+h1 { font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.02em; }
+h2 { font-size: clamp(28px, 3.4vw, 38px); margin-top: 2.5rem; }
+h3 { font-size: clamp(20px, 2vw, 24px); margin-top: 1.8rem; }
+p  { max-width: var(--max-measure); margin: 0 0 1.1em; }
+small { font-size: 0.85em; }
+code, pre, .mono {
+  font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.9em;
+}
+pre {
+  background: #FFFFFF;
+  border: 1px solid var(--muted);
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+em.title { font-style: italic; }
+
+/* ----- 4. Layout ---------------------------------------------------------- */
+.container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.container--narrow { max-width: 760px; }
+section { padding: 3.5rem 0; border-bottom: 1px solid var(--muted); }
+section:last-of-type { border-bottom: 0; }
+
+/* ----- 5. Top nav --------------------------------------------------------- */
+.topnav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--muted);
+}
+.topnav__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px; max-width: 1200px; margin: 0 auto;
+}
+.topnav__brand {
+  display: flex; flex-direction: column; gap: 2px;
+  text-decoration: none; color: var(--ink);
+}
+.topnav__brand strong { font-size: 15px; letter-spacing: -0.01em; }
+.topnav__brand .sister-rule {
+  font-size: 11px; color: var(--ink); opacity: 0.7;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.topnav__brand .sister-rule a { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted); }
+.topnav__list { display: flex; gap: 22px; align-items: center; list-style: none; margin: 0; padding: 0; }
+.topnav__list a { color: var(--ink); text-decoration: none; font-size: 14px; }
+.topnav__list a:hover { color: var(--accent); }
+.topnav__list .gh { font-size: 12px; opacity: 0.7; }
+.topnav__toggle { display: none; background: none; border: 1px solid var(--muted); padding: 6px 10px; font: inherit; cursor: pointer; }
+@media (max-width: 768px) {
+  .topnav__list { display: none; flex-direction: column; gap: 14px; padding: 14px 24px; background: var(--bg); border-top: 1px solid var(--muted); width: 100%; }
+  .topnav__list.is-open { display: flex; }
+  .topnav__toggle { display: block; }
+  .topnav__inner { flex-wrap: wrap; }
+}
+
+/* ----- 6. Hero ------------------------------------------------------------ */
+.hero { padding: 4.5rem 0 3rem; }
+.hero__kicker { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.hero h1 { margin-bottom: 18px; }
+.hero__sub { font-size: clamp(18px, 2vw, 22px); max-width: 56ch; color: var(--ink); opacity: 0.9; margin-bottom: 1.4em; }
+.hero__adjacency {
+  font-size: 10pt;
+  color: var(--ink);
+  opacity: 0.7;
+  margin: 1.4rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--muted);
+  max-width: 60ch;
+}
+.hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 1.6rem; }
+
+/* ----- 7. Buttons --------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 18px;
+  font-size: 15px; font-weight: 500;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+}
+.btn:hover { filter: brightness(1.1); }
+.btn--ghost { background: transparent; color: var(--accent); }
+.btn--ghost:hover { background: var(--accent-soft); }
+
+/* ----- 8. Cards / grids --------------------------------------------------- */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.card {
+  border: 1px solid var(--muted);
+  background: #FFFFFF;
+  padding: 22px 22px 24px;
+  border-radius: 4px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.card h3 { margin-top: 0; }
+.card p { margin: 0; font-size: 15px; opacity: 0.9; }
+.card a { font-size: 14px; margin-top: auto; padding-top: 8px; }
+
+/* ----- 9. UPL block (page-specific, F.2 GC sign-off surfaces) ------------- */
+.upl-block {
+  border-left: 4px solid var(--warning);
+  background: #FFFFFF;
+  padding: 1.2rem 1.4rem;
+  margin: 2rem 0;
+  font-size: 15px;
+  max-width: var(--max-measure);
+}
+.upl-block strong { color: var(--warning); }
+.upl-block p:last-child { margin-bottom: 0; }
+
+/* ----- 10. Two-column block ---------------------------------------------- */
+.cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+@media (max-width: 768px) { .cols2 { grid-template-columns: 1fr; } }
+
+/* ----- 11. TOC sidebar (F.2 /read) --------------------------------------- */
+.with-toc { display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start; }
+.toc { position: sticky; top: 80px; font-size: 14px; max-height: calc(100vh - 100px); overflow-y: auto; }
+.toc h4 { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-bottom: 10px; }
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin-bottom: 6px; }
+.toc a { color: var(--ink); text-decoration: none; opacity: 0.85; }
+.toc a:hover { color: var(--accent); }
+@media (max-width: 1024px) {
+  .with-toc { grid-template-columns: 1fr; }
+  .toc { position: static; max-height: none; border-bottom: 1px solid var(--muted); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+}
+
+/* ----- 12. Schema / API blocks ------------------------------------------- */
+.schema-card { border: 1px solid var(--muted); background: #FFFFFF; padding: 18px 20px; margin-bottom: 14px; border-radius: 4px; }
+.schema-card h3 { margin-top: 0; }
+.schema-card .meta { font-size: 13px; opacity: 0.75; margin-bottom: 8px; }
+.schema-card details { margin-top: 10px; }
+.schema-card summary { cursor: pointer; font-size: 14px; }
+
+/* ----- 13. Citation block ------------------------------------------------ */
+.cite-block {
+  background: #FFFFFF;
+  border: 1px solid var(--muted);
+  padding: 1.1rem 1.3rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+.cite-block h4 { margin-top: 0; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+.cite-block pre { background: #FAFAF7; }
+
+/* ----- 14. Footer -------------------------------------------------------- */
+.footer { background: #FFFFFF; border-top: 1px solid var(--muted); padding: 3rem 0 2.4rem; margin-top: 3rem; }
+.footer__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.footer__cols h4 { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-bottom: 12px; }
+.footer__cols ul { list-style: none; padding: 0; margin: 0; }
+.footer__cols li { margin-bottom: 6px; font-size: 14px; }
+.footer__cols a { color: var(--ink); }
+.footer__boilerplate {
+  max-width: 1080px;
+  margin: 2.4rem auto 0;
+  padding: 1.6rem 24px 0;
+  border-top: 1px solid var(--muted);
+  font-size: 13px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+@media (max-width: 768px) { .footer__cols { grid-template-columns: 1fr; } }
+
+/* ----- 15. Misc ---------------------------------------------------------- */
+.tag { display: inline-block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--muted); border-radius: 2px; opacity: 0.85; }
+.placeholder {
+  border: 1px dashed var(--muted);
+  background: #FFFFFF;
+  padding: 1rem 1.2rem;
+  margin: 1.2rem 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+.placeholder strong { color: var(--warning); }
+ul, ol { padding-left: 1.4em; }
+li { margin-bottom: 0.4em; }
+
+/* ----- 16. Mobile nav script hook ---------------------------------------- */
+.no-js .topnav__toggle { display: none; }

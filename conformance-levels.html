@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conformance Levels &mdash; Decision Provenance Standard</title>
+<meta name="description" content="Three structural Conformance Levels. Self-declared by deployers. Read by auditors as one input among others.">
+<link rel="stylesheet" href="css/design-system.css">
+</head>
+<body data-site="f2" class="no-js">
+<script>document.body.classList.remove('no-js');</script>
+
+<nav class="topnav" aria-label="Primary">
+  <div class="topnav__inner">
+    <a class="topnav__brand" href="./index.html">
+      <strong>Decision Provenance Standard</strong>
+      <span class="sister-rule">Part of the <a href="https://yohayetsion.github.io/eos-draft/index.html">Executive Operating Systems Series</a></span>
+    </a>
+    <button class="topnav__toggle" aria-expanded="false" aria-controls="navlist" onclick="document.getElementById('navlist').classList.toggle('is-open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');">Menu</button>
+    <ul class="topnav__list" id="navlist">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./read.html">Read the Standard</a></li>
+      <li><a href="./conformance-levels.html">Conformance Levels</a></li>
+      <li><a href="./reporter-api.html">Reporter API</a></li>
+      <li><a href="./schemas.html">Schemas</a></li>
+      <li><a href="./cite.html">Cite the Standard</a></li>
+      <li class="gh"><a href="https://github.com/yohayetsion/product-org-os" rel="noopener" target="_blank">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero__kicker">Section 6 explainer</div>
+    <h1>Conformance Levels</h1>
+    <p class="hero__sub">Three structural levels. Self-declared by deployers. Read by auditors as one input among others.</p>
+    <div class="hero__cta">
+      <a class="btn" href="./read.html#section-6">Read &sect;6 in the Standard &rarr;</a>
+      <a class="btn btn--ghost" href="./reporter-api.html">View the Reporter API &rarr;</a>
+    </div>
+    <p class="hero__adjacency">Open standard. Not a certified product. Not legal advice. Not a regulatory substitute.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="upl-block">
+      <p><strong>Not legal advice. Not certification. Not regulatory substitute.</strong> This page is a plain-language explainer of Section 6 of the Decision Provenance Standard. The Standard <em>grades</em> a Charter against three Conformance Levels. A grade is not a certification. The Standard does not certify, does not satisfy, and does not substitute for any regulatory, audit, or attestation regime. Counsel and auditors form their own substantive judgments using a grade as one input among others.</p>
+      <p><strong>Jurisdiction Assumed:</strong> U.S. federal and Delaware as primary; UK, EU AI Act, and Israel as named secondaries. Whether a Member-State implementation of the EU AI Act, an FTC truth-in-advertising review, or a sector regulator's substantive review treats a Level 3 grade as a sufficient input is a question only counsel in that jurisdiction can answer.</p>
+      <p><em>This UPL block requires General Counsel sign-off before production publish per the two-pass publication gate.</em></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container container--narrow">
+    <p>The Standard defines three Conformance Levels &mdash; 1, 2, and 3 &mdash; each with structural criteria a deployer's Charter and decision-record discipline must meet. Levels are self-declared, not certified. Section 6 grades the Charter against the criteria; auditors and counsel form their own substantive judgments using the grading as one input.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>The three levels</h2>
+    <div class="card-grid">
+      <div class="card">
+        <span class="tag">Level 1</span>
+        <h3>Structural</h3>
+        <p>The deployer's Charter exists, names the decision authority, and identifies the artifact set. Level 1 is the entry threshold: the decision pipeline is named, even if not yet recorded.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Level 2</span>
+        <h3>Recorded</h3>
+        <p>Decision records are produced for every decision the Charter governs. Mode is named; authorship is named; downstream readers can reconstruct what happened from the records alone.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Level 3</span>
+        <h3>Continuously Auditable</h3>
+        <p>Records are produced as decisions happen, not in retrospect. The reporter protocol emits self-declared signals; the deployer's Charter discipline holds across leadership transitions. Charters authored using the Product Org OS can achieve Level 3.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container container--narrow">
+    <h2>What &ldquo;grades&rdquo; means &mdash; and what it does not</h2>
+    <p>The Standard's Section 6 grades the Charter at Conformance Level 1, 2, or 3 against the criteria the Section names. A grade is a structural reading of the Charter. It is not a certification, it does not satisfy any regulatory regime, and it does not substitute for substantive judgment by qualified personnel.</p>
+    <p>A Level 3 grade does not certify. A Level 3 grade does not satisfy. A Level 3 grade does not substitute. The grade is one input among many that counsel, auditors, and regulators use when they form their own substantive judgments.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container container--narrow">
+    <h2>Worked example</h2>
+    <p>A deployer installs the Standard for a CPO seat. The seat publishes a Charter naming the decision authority for product-launch decisions, the artifact set the seat produces, and the dispatch grammar (Mode 1 / Mode 2). Decision records are produced contemporaneously for every launch decision.</p>
+    <p>The seat self-declares Conformance Level 2: records exist, mode is named, authorship is named. The seat does not yet emit Reporter API signals continuously, so it does not declare Level 3.</p>
+    <p>An auditor reading the Charter and records sees a Level 2 grade. The auditor forms a substantive judgment about whether the records support the audit work using the grade as one input. The grade does not certify the seat's posture; it describes the structure the seat operates.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container container--narrow">
+    <h2>Beyond Level 3</h2>
+    <p>Section 6 of the Standard explicitly excludes Level 4. Beyond Level 3 sits substantive judgment &mdash; the qualified personnel work of counsel, auditors, and regulators &mdash; which is not the Standard's scope. The Standard formalizes structure; it does not opine on substance.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__cols">
+    <div>
+      <h4>License &amp; Authorship</h4>
+      <ul>
+        <li>Published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC-BY 4.0</a></li>
+        <li>Author: Yohay Etsion</li>
+        <li>Publisher: Etsion Brands Ltd.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Cross-References</h4>
+      <ul>
+        <li><a href="https://yohayetsion.github.io/eos-draft/index.html">Executive Operating Systems Series</a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/the-os.html">Product Org OS &mdash; Level 3 reference implementation</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Companion Artifacts</h4>
+      <ul>
+        <li><a href="./read.html">The Standard</a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/volume-one.html"><em class="title">Vision to Value</em></a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/position-paper.html">The Position Paper</a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/manifesto.html"><em class="title">The Seat That Runs the System</em></a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/the-os.html">Product Org OS</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer__boilerplate">
+    The Decision Provenance Standard is an open standard, not a certified product. The Standard is published under CC-BY 4.0 and may be read, cited, and implemented freely. <em class="title">Vision to Value: Volume One in the Executive Operating System Series</em> is the first book in an open series. Product Org OS is the open-source implementation that follows the Standard. The Standard does not certify, validate, or attest any deployer's installation; conformance is self-declared by deployers and read by counsel and auditors as one input among others. This site is not legal advice and does not substitute for counsel review in any jurisdiction.
+  </p>
+</footer>
+
+</body>
+</html>

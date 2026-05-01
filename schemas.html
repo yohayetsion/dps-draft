@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schemas &mdash; Decision Provenance Standard</title>
+<meta name="description" content="JSON Schemas for Charter, Decision Record, Article 50 Disclosure Metadata, and Layer 4 Attestation Card.">
+<link rel="stylesheet" href="css/design-system.css">
+</head>
+<body data-site="f2" class="no-js">
+<script>document.body.classList.remove('no-js');</script>
+
+<nav class="topnav" aria-label="Primary">
+  <div class="topnav__inner">
+    <a class="topnav__brand" href="./index.html">
+      <strong>Decision Provenance Standard</strong>
+      <span class="sister-rule">Part of the <a href="https://yohayetsion.github.io/eos-draft/index.html">Executive Operating Systems Series</a></span>
+    </a>
+    <button class="topnav__toggle" aria-expanded="false" aria-controls="navlist" onclick="document.getElementById('navlist').classList.toggle('is-open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');">Menu</button>
+    <ul class="topnav__list" id="navlist">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./read.html">Read the Standard</a></li>
+      <li><a href="./conformance-levels.html">Conformance Levels</a></li>
+      <li><a href="./reporter-api.html">Reporter API</a></li>
+      <li><a href="./schemas.html">Schemas</a></li>
+      <li><a href="./cite.html">Cite the Standard</a></li>
+      <li class="gh"><a href="https://github.com/yohayetsion/product-org-os" rel="noopener" target="_blank">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero__kicker">Machine-readable artifacts</div>
+    <h1>JSON Schemas</h1>
+    <p class="hero__sub">Charter &middot; Decision Record &middot; Article 50 Disclosure Metadata &middot; Layer 4 Attestation Card. CC-BY 4.0.</p>
+    <div class="hero__cta">
+      <a class="btn" href="#download-all">Download all schemas (zip) &rarr;</a>
+      <a class="btn btn--ghost" href="./read.html#section-5">Read &sect;5 (Required Artifact Set) &rarr;</a>
+    </div>
+    <p class="hero__adjacency">Open standard. Not a certified product. Not legal advice. Not a regulatory substitute.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container container--narrow">
+    <p>The four schemas a deployer's installation produces and consumes, published under CC-BY 4.0 as JSON Schema (Draft 2020-12). Each schema is downloadable, version-stamped, and linked from the relevant section of the Standard.</p>
+    <p>Schemas published here implement the Standard's Section 5 artifact definitions verbatim. A Charter authored using a different schema may still align with the Standard if the substantive structure conforms; the published schemas are the authoritative reference shape.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>The four schemas</h2>
+
+    <div class="schema-card">
+      <span class="tag">Schema 1</span>
+      <h3>Charter</h3>
+      <div class="meta">Version 1.0 &middot; <a href="./read.html#section-3">&sect;3 in the Standard</a></div>
+      <p>The Charter schema names a single executive seat's decision authority, the artifact set the seat produces, and the dispatch grammar (Mode 1 / Mode 2). The Charter is the load-bearing artifact in the Standard.</p>
+      <a class="btn btn--ghost" href="#">Download <span class="mono">charter.schema.json</span></a>
+      <details>
+        <summary>Preview structure</summary>
+        <pre class="mono">{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decisionprovenance.ai/schemas/charter/v1.0",
+  "type": "object",
+  "required": ["charter_id", "seat", "decision_authority", "artifact_set", "dispatch_grammar"],
+  "properties": { "...": "..." }
+}</pre>
+      </details>
+    </div>
+
+    <div class="schema-card">
+      <span class="tag">Schema 2</span>
+      <h3>Decision Record</h3>
+      <div class="meta">Version 1.0 &middot; <a href="./read.html#section-4">&sect;4 in the Standard</a></div>
+      <p>The Decision Record schema captures a single decision the Charter governs: mode, authorship, the inputs considered, the alternatives evaluated, and the rationale. Records are produced contemporaneously at Level 3.</p>
+      <a class="btn btn--ghost" href="#">Download <span class="mono">decision-record.schema.json</span></a>
+      <details>
+        <summary>Preview structure</summary>
+        <pre class="mono">{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decisionprovenance.ai/schemas/decision-record/v1.0",
+  "type": "object",
+  "required": ["record_id", "charter_id", "mode", "authored_by", "decided_at", "rationale"],
+  "properties": { "...": "..." }
+}</pre>
+      </details>
+    </div>
+
+    <div class="schema-card">
+      <span class="tag">Schema 3</span>
+      <h3>Article 50 Disclosure Metadata</h3>
+      <div class="meta">Version 1.0 &middot; <a href="./read.html#section-7">&sect;7 in the Standard</a></div>
+      <p>The disclosure metadata schema names the AI authorship participation in a decision in a form aligned with the EU AI Act's Article 50 disclosure expectations. Member-State implementations vary; this schema is a structural input to substantive disclosure work, not a substitute for it.</p>
+      <a class="btn btn--ghost" href="#">Download <span class="mono">article-50-disclosure.schema.json</span></a>
+      <details>
+        <summary>Preview structure</summary>
+        <pre class="mono">{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decisionprovenance.ai/schemas/article-50-disclosure/v1.0",
+  "type": "object",
+  "required": ["disclosure_id", "decision_record_ref", "ai_participation"],
+  "properties": { "...": "..." }
+}</pre>
+      </details>
+    </div>
+
+    <div class="schema-card">
+      <span class="tag">Schema 4</span>
+      <h3>Layer 4 Attestation Card</h3>
+      <div class="meta">Version 1.0 &middot; <a href="./read.html#section-8">&sect;8 in the Standard</a></div>
+      <p>The Layer 4 attestation card is the payload of the Reporter API. It carries the self-declared Conformance Level signal and the period over which the signal applies.</p>
+      <a class="btn btn--ghost" href="#">Download <span class="mono">layer-4-attestation.schema.json</span></a>
+      <details>
+        <summary>Preview structure</summary>
+        <pre class="mono">{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decisionprovenance.ai/schemas/layer-4-attestation/v1.0",
+  "type": "object",
+  "required": ["charter_id", "level_declared", "self_declared", "period_start", "period_end"],
+  "properties": { "...": "..." }
+}</pre>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container container--narrow">
+    <h2>How schemas relate to Sections of the Standard</h2>
+    <table class="mono" style="width:100%;border-collapse:collapse;font-size:14px">
+      <thead><tr style="border-bottom:1px solid var(--muted)"><th style="text-align:left;padding:8px 4px">Schema</th><th style="text-align:left;padding:8px 4px">Standard section</th></tr></thead>
+      <tbody>
+        <tr><td style="padding:6px 4px">Charter</td><td style="padding:6px 4px">&sect;3 Charter Mechanism</td></tr>
+        <tr><td style="padding:6px 4px">Decision Record</td><td style="padding:6px 4px">&sect;4 Decision Records</td></tr>
+        <tr><td style="padding:6px 4px">Article 50 Disclosure</td><td style="padding:6px 4px">&sect;7 Disclosure Metadata</td></tr>
+        <tr><td style="padding:6px 4px">Layer 4 Attestation</td><td style="padding:6px 4px">&sect;8 Reporter Protocol</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="download-all">
+  <div class="container container--narrow">
+    <h2>Schema versioning</h2>
+    <p>Schemas track the Standard's major versions. The current version is v1.0, matching Standard v1.0. When the Standard updates a schema's substantive structure, the schema's <span class="mono">$id</span> URL increments accordingly; older schema versions remain available at their historical URLs for citation continuity.</p>
+    <div class="hero__cta">
+      <a class="btn" href="#">Download all schemas (zip)</a>
+    </div>
+    <p class="placeholder"><strong>Asset placeholder &mdash;</strong> schema files and zip bundle URLs land on Day 3.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__cols">
+    <div>
+      <h4>License &amp; Authorship</h4>
+      <ul>
+        <li>Published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC-BY 4.0</a></li>
+        <li>Author: Yohay Etsion</li>
+        <li>Publisher: Etsion Brands Ltd.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Cross-References</h4>
+      <ul>
+        <li><a href="https://yohayetsion.github.io/eos-draft/index.html">Executive Operating Systems Series</a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/volume-one.html"><em class="title">Vision to Value</em> &mdash; Charter mechanism</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Companion Artifacts</h4>
+      <ul>
+        <li><a href="./read.html">The Standard</a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/volume-one.html"><em class="title">Vision to Value</em></a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/position-paper.html">The Position Paper</a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/manifesto.html"><em class="title">The Seat That Runs the System</em></a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/the-os.html">Product Org OS</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer__boilerplate">
+    The Decision Provenance Standard is an open standard, not a certified product. The Standard is published under CC-BY 4.0 and may be read, cited, and implemented freely. <em class="title">Vision to Value: Volume One in the Executive Operating System Series</em> is the first book in an open series. Product Org OS is the open-source implementation that follows the Standard. The Standard does not certify, validate, or attest any deployer's installation; conformance is self-declared by deployers and read by counsel and auditors as one input among others. This site is not legal advice and does not substitute for counsel review in any jurisdiction.
+  </p>
+</footer>
+
+</body>
+</html>

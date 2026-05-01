@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reporter API &mdash; Decision Provenance Standard</title>
+<meta name="description" content="The Conformance Reporter API. POST + ack + optional webhook. OpenAPI 3.1.">
+<link rel="stylesheet" href="css/design-system.css">
+</head>
+<body data-site="f2" class="no-js">
+<script>document.body.classList.remove('no-js');</script>
+
+<nav class="topnav" aria-label="Primary">
+  <div class="topnav__inner">
+    <a class="topnav__brand" href="./index.html">
+      <strong>Decision Provenance Standard</strong>
+      <span class="sister-rule">Part of the <a href="https://yohayetsion.github.io/eos-draft/index.html">Executive Operating Systems Series</a></span>
+    </a>
+    <button class="topnav__toggle" aria-expanded="false" aria-controls="navlist" onclick="document.getElementById('navlist').classList.toggle('is-open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');">Menu</button>
+    <ul class="topnav__list" id="navlist">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./read.html">Read the Standard</a></li>
+      <li><a href="./conformance-levels.html">Conformance Levels</a></li>
+      <li><a href="./reporter-api.html">Reporter API</a></li>
+      <li><a href="./schemas.html">Schemas</a></li>
+      <li><a href="./cite.html">Cite the Standard</a></li>
+      <li class="gh"><a href="https://github.com/yohayetsion/product-org-os" rel="noopener" target="_blank">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero__kicker">Section 8 wire protocol</div>
+    <h1>Conformance Reporter API</h1>
+    <p class="hero__sub">How a deployer's Charter emits a self-declared Conformance Level signal. POST + ack + optional webhook.</p>
+    <div class="hero__cta">
+      <a class="btn" href="#openapi">Download OpenAPI 3.1 spec &rarr;</a>
+      <a class="btn btn--ghost" href="./schemas.html">View JSON Schemas &rarr;</a>
+    </div>
+    <p class="hero__adjacency">Open standard. Not a certified product. Not legal advice. Not a regulatory substitute.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="upl-block">
+      <p><strong>Self-declared, not validated.</strong> The Reporter API is the wire protocol by which a deployer's Charter installation emits a self-declared Conformance Level signal. The protocol is open; the endpoint is documented; the OpenAPI 3.1 spec is downloadable. The Standard does not validate, certify, or attest any signal emitted via this protocol. Implementations are deployer-side; the Standard does not run a registry server. A signal received by a downstream reader is one input to that reader's substantive judgment.</p>
+      <p><strong>Jurisdiction Assumed:</strong> U.S. federal and Delaware as primary; UK, EU AI Act, and Israel as named secondaries. Whether a deployer's emission of a Level 3 signal under this protocol exposes the deployer to FTC truth-in-advertising scrutiny in any specific jurisdiction is a question only counsel can answer.</p>
+      <p><em>This UPL block requires General Counsel sign-off before production publish.</em></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container container--narrow">
+    <p>Implementations that follow the Standard emit conformance signals at the level the Charter discipline supports. The reporter protocol is structurally aligned with the Standard's Section 6 grading criteria; downstream auditors read the signal as one input among others.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Endpoint specification</h2>
+    <p>The Reporter API exposes a single primary endpoint. Implementations are deployer-side; the URL pattern below is the canonical contract that any implementation that follows the Standard satisfies.</p>
+    <pre class="mono">POST /v1/conformance/signal
+Host:        {deployer-implementation-host}
+Content-Type: application/json
+Authorization: Bearer {deployer-issued-token}
+Idempotency-Key: {uuid-v4}</pre>
+    <p>Authentication mechanism is deployer-configured. Bearer tokens are the recommended pattern; mTLS is permitted for enterprise deployments.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Idempotency</h2>
+    <p>Every request carries an <span class="mono">Idempotency-Key</span> header (UUID v4). A deployer's implementation MUST treat repeated requests with the same key as identical and return the same response body. The key is the deployer's responsibility to generate and persist; the Standard does not centralize key issuance.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Payload schema</h2>
+    <p>The request body conforms with the Layer 4 attestation schema (see <a href="./schemas.html">Schemas</a>). The minimum required fields are below; the full schema is the authoritative reference.</p>
+    <pre class="mono">{
+  "charter_id":      "string (deployer-issued, stable)",
+  "version":         "1.0",
+  "level_declared":  1 | 2 | 3,
+  "mode_distribution": {
+    "mode_1_count": "integer",
+    "mode_2_count": "integer"
+  },
+  "period_start":    "ISO 8601 timestamp",
+  "period_end":      "ISO 8601 timestamp",
+  "self_declared":   true,
+  "signed_by":       "deployer-issued seat identifier"
+}</pre>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Webhook callback (optional)</h2>
+    <p>Deployer implementations MAY register a webhook URL to receive asynchronous acknowledgments from downstream readers (auditors, regulators-of-record). The webhook is optional and does not affect the synchronous ack of the primary POST.</p>
+    <pre class="mono">POST {deployer-registered-webhook-url}
+Content-Type: application/json
+
+{
+  "charter_id":  "string",
+  "received_at": "ISO 8601 timestamp",
+  "reader_id":   "string (downstream reader identifier)",
+  "ack_status":  "received | parsed | rejected"
+}</pre>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Worked example</h2>
+    <pre class="mono">curl -X POST https://implementation.example.com/v1/conformance/signal \
+  -H "Authorization: Bearer eyJ..." \
+  -H "Content-Type: application/json" \
+  -H "Idempotency-Key: 550e8400-e29b-41d4-a716-446655440000" \
+  -d '{
+    "charter_id": "cpo-seat-2026-q2",
+    "version": "1.0",
+    "level_declared": 3,
+    "mode_distribution": { "mode_1_count": 47, "mode_2_count": 12 },
+    "period_start": "2026-04-01T00:00:00Z",
+    "period_end":   "2026-06-30T23:59:59Z",
+    "self_declared": true,
+    "signed_by":    "yohay.etsion@deployer.example.com"
+  }'</pre>
+    <p>Successful ack returns HTTP 202 with a body echoing the request body plus a server-issued <span class="mono">signal_id</span>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Error model</h2>
+    <p>Errors return HTTP 4xx for client-side malformations, HTTP 5xx for server-side faults. Error responses MUST include a structured body with a stable <span class="mono">error_code</span> and human-readable <span class="mono">message</span>. The error model does not attribute blame; it describes the failure.</p>
+    <pre class="mono">{
+  "error_code": "invalid_level",
+  "message":    "level_declared must be 1, 2, or 3"
+}</pre>
+  </div>
+</section>
+
+<section id="openapi">
+  <div class="container container--narrow">
+    <h2>OpenAPI 3.1 specification</h2>
+    <p>The full wire contract is published as OpenAPI 3.1.</p>
+    <div class="hero__cta">
+      <a class="btn" href="#">Download <span class="mono">openapi.json</span></a>
+      <a class="btn btn--ghost" href="#">Download <span class="mono">openapi.yaml</span></a>
+    </div>
+    <p class="placeholder"><strong>Asset placeholder &mdash;</strong> OpenAPI 3.1 spec asset URLs land on Day 3.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__cols">
+    <div>
+      <h4>License &amp; Authorship</h4>
+      <ul>
+        <li>Published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC-BY 4.0</a></li>
+        <li>Author: Yohay Etsion</li>
+        <li>Publisher: Etsion Brands Ltd.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Cross-References</h4>
+      <ul>
+        <li><a href="https://yohayetsion.github.io/eos-draft/index.html">Executive Operating Systems Series</a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/the-os.html">Product Org OS &mdash; reference implementation</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Companion Artifacts</h4>
+      <ul>
+        <li><a href="./read.html">The Standard</a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/volume-one.html"><em class="title">Vision to Value</em></a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/position-paper.html">The Position Paper</a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/manifesto.html"><em class="title">The Seat That Runs the System</em></a></li>
+        <li><a href="https://yohayetsion.github.io/eos-draft/the-os.html">Product Org OS</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer__boilerplate">
+    The Decision Provenance Standard is an open standard, not a certified product. The Standard is published under CC-BY 4.0 and may be read, cited, and implemented freely. <em class="title">Vision to Value: Volume One in the Executive Operating System Series</em> is the first book in an open series. Product Org OS is the open-source implementation that follows the Standard. The Standard does not certify, validate, or attest any deployer's installation; conformance is self-declared by deployers and read by counsel and auditors as one input among others. This site is not legal advice and does not substitute for counsel review in any jurisdiction.
+  </p>
+</footer>
+
+</body>
+</html>
